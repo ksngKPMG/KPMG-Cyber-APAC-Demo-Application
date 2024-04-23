@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, withRouter } from 'react-router-dom';
+import { BrowserRouter as Router, Route, withRouter, Redirect} from 'react-router-dom';
 import { OktaAuth, toRelativeUrl } from '@okta/okta-auth-js';
 import { LoginCallback, Security, SecureRoute } from '@okta/okta-react';
 import Home from './Home';
@@ -8,15 +8,14 @@ import Register from './Register';
 
 
 const oktaAuth = new OktaAuth({
-  //issuer: 'https://bugcrowd-oie-7dee-1.oktapreview.com/oauth2/default',
-  issuer: 'https://trial-2882636.oktapreview.com/oauth2/default',
-  //clientId: '0oa6qbyjgqMfEHx4I0x7',
-  clientId: '0oadxlcjporwDJXgP1d7',
+  issuer: process.env.REACT_APP_ISSUER,
+  clientId: process.env.REACT_APP_CLIENTID,
   redirectUri: window.location.origin + '/login/callback'
 });
 
-class App extends Component {
 
+
+class App extends Component {
   async componentDidMount() {
     try {
       const response = await fetch('http://localhost:3000/profile', {
@@ -38,14 +37,30 @@ class App extends Component {
     this.restoreOriginalUri = async (_oktaAuth, originalUri) => {
       props.history.replace(toRelativeUrl(originalUri || '/', window.location.origin));
     };
+    //this.customAuthHandler = this.customAuthHandler.bind(this);
   }
-
+  // customAuthHandler = async () =>{
+  //   alert("You are not authenticated!");
+  //   const {history} = this.props;
+  //   history.push('/');
+  // }
+//onAuthRequired={this.customAuthHandler} component={LoginCallback}
+  //render={ (props) => <LoginCallback {...props} onAuthResume={ this.onAuthResume } /> }
   render() {
     return (
-      <Security oktaAuth={oktaAuth} restoreOriginalUri={this.restoreOriginalUri}>
+      <Security oktaAuth={oktaAuth} restoreOriginalUri={this.restoreOriginalUri} onAuthRequired={this.customAuthHandler}>
         <Route path="/" exact={true} component={Home} />
         <Route path="/register" exact={true} component={Register}/>
-        <Route path="/login/callback" component={LoginCallback}/>
+        <Route path="/login/callback"  render= { (props) => {
+          console.log(JSON.stringify( props.history.location) );
+          const error = new URLSearchParams(props.history.location.search).get("error");
+          console.log("Print: "+error);
+          if(error!=null){
+            alert("Access denied please log in again");
+            return <Redirect to="/"/>
+          }
+          return <LoginCallback {...props}/> }
+        }/>
         <SecureRoute path="/profile" component={Profile}/>
       </Security>
     );
