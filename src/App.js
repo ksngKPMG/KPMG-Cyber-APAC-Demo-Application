@@ -5,11 +5,12 @@ import { LoginCallback, Security, SecureRoute } from '@okta/okta-react';
 import Home from './Home';
 import Profile from './Profile';
 import Register from './Register';
+import configData from './config/config.json'
 
 
 const oktaAuth = new OktaAuth({
-  issuer: process.env.REACT_APP_ISSUER,
-  clientId: process.env.REACT_APP_CLIENTID,
+  issuer: configData.APP_ISSUER,
+  clientId: configData.CLIENTID,
   redirectUri: window.location.origin + '/login/callback'
 });
 

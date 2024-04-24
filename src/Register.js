@@ -5,14 +5,15 @@ import './App.css';
 import {Helmet,HelmetProvider} from 'react-helmet-async';
 import axios from 'axios';
 import kpmgLogo from "./assets/KPMG_logo.png";
+import configData from "./config/config.json"
  
 const KYCComponent = () => {
     const [config2,setConfig2] = useState({familyName:"",givenName:"", email:"", message:"",visibility:true});
     const [errors, setErrors] = useState({ givenName: "", email: "" });
     const [config, setConfig] = useState({
-        tenant: process.env.REACT_APP_TENANT,
+        tenant: configData.TENANT,
         token: "",
-        apiUrl: process.env.REACT_APP_REGISTER_URI,
+        apiUrl: configData.REGISTER_URI,
         width: "100%",
         height: "100%",
         config: {
@@ -57,14 +58,14 @@ const KYCComponent = () => {
       const fetchData = async () =>{
         const requestData = {
           'grant_type' : 'client_credentials',
-          'client_id' : process.env.REACT_APP_KYC_TOKEN_CLIENTID,
+          'client_id' : configData.TOKEN_CLIENTID,
           'scope' : 'websdk/websdk:run'
         }
         const requestHeaders = {
           'Content-Type': "application/x-www-form-urlencoded",
-          'Authorization': process.env.REACT_APP_KYC_BASICAUTH
+          'Authorization': configData.BASICAUTH
         }
-        axios.post(process.env.REACT_APP_KYC_TOKEN_URL,requestData,{headers:requestHeaders})
+        axios.post(configData.TOKEN_URL,requestData,{headers:requestHeaders})
         .then(response => {
           //console.log(response.data.access_token);
           setConfig(config=>({...config,token:response.data.access_token}));
