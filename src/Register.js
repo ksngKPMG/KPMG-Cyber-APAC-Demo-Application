@@ -17,13 +17,13 @@ const KYCComponent = () => {
         width: "100%",
         height: "100%",
         config: {
-          email: "1212@gmail.com",
+          email: "",
           externalRefId: "viva max",
           givenName: "givenname",
           familyName: "familyname",
-          mobileNumber: "091234567890",
-          dateOfBirth: "1990-03-24",
-          gender: "M",
+          mobileNumber: "",
+          dateOfBirth: "",
+          gender: "",
           options: {
             channel: "web",
             timeout: 45,

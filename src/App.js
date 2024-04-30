@@ -14,8 +14,6 @@ const oktaAuth = new OktaAuth({
   redirectUri: window.location.origin + '/login/callback'
 });
 
-
-
 class App extends Component {
   async componentDidMount() {
     try {
@@ -29,7 +27,7 @@ class App extends Component {
       this.setState({ messages: data.messages });
     } catch (err) {
       // handle error as needed
-      console.log("Into the error message")
+      console.log("Into the error message: "+ err)
     }
   }
 
@@ -40,13 +38,12 @@ class App extends Component {
     };
     //this.customAuthHandler = this.customAuthHandler.bind(this);
   }
-  // customAuthHandler = async () =>{
-  //   alert("You are not authenticated!");
-  //   const {history} = this.props;
-  //   history.push('/');
-  // }
-//onAuthRequired={this.customAuthHandler} component={LoginCallback}
-  //render={ (props) => <LoginCallback {...props} onAuthResume={ this.onAuthResume } /> }
+  customAuthHandler = async () =>{
+    alert("You are not authenticated!");
+    const {history} = this.props;
+    history.push('/');
+  }
+
   render() {
     return (
       <Security oktaAuth={oktaAuth} restoreOriginalUri={this.restoreOriginalUri} onAuthRequired={this.customAuthHandler}>
@@ -58,9 +55,12 @@ class App extends Component {
           console.log("Print: "+error);
           if(error!=null){
             alert("Access denied please log in again");
-            return <Redirect to="/"/>
+            oktaAuth.signInWithRedirect(); 
+          }else{
+            return <LoginCallback {...props}/>
           }
-          return <LoginCallback {...props}/> }
+          return <Home />
+          }
         }/>
         <SecureRoute path="/profile" component={Profile}/>
       </Security>
