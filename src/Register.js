@@ -59,14 +59,14 @@ const KYCComponent = () => {
       const fetchData = async () =>{
 
         AWS.config.update({
-          accessKeyId: '',
-          secretAccessKey: '',
-          region: ''
+          accessKeyId: 'AKIAWUNLQXA7UGEIDSZZ',
+          secretAccessKey: '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',
+          region: 'ap-southeast-2'
         })
         const s3 = new AWS.S3();
         const params = {
-          Bucket: '',
-          Key: '',
+          Bucket: 'demoappkpmg',
+          Key: 'config.json',
           Expires : 3600
         }
         var TOKEN_CLIENTID="";
