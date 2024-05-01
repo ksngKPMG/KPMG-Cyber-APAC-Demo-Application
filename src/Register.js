@@ -6,24 +6,25 @@ import {Helmet,HelmetProvider} from 'react-helmet-async';
 import axios from 'axios';
 import kpmgLogo from "./assets/KPMG_logo.png";
 import configData from "./config/config.json"
- 
+import AWS from "aws-sdk"
+
 const KYCComponent = () => {
     const [config2,setConfig2] = useState({familyName:"",givenName:"", email:"", message:"",visibility:true});
     const [errors, setErrors] = useState({ givenName: "", email: "" });
     const [config, setConfig] = useState({
-        tenant: configData.TENANT,
+        tenant: "",
         token: "",
-        apiUrl: configData.REGISTER_URI,
+        apiUrl: "",
         width: "100%",
         height: "100%",
         config: {
-          email: "1212@gmail.com",
+          email: "",
           externalRefId: "viva max",
-          givenName: "givenname",
-          familyName: "familyname",
-          mobileNumber: "091234567890",
-          dateOfBirth: "1990-03-24",
-          gender: "M",
+          givenName: "",
+          familyName: "",
+          mobileNumber: "",
+          dateOfBirth: "",
+          gender: "",
           options: {
             channel: "web",
             timeout: 45,
@@ -56,16 +57,41 @@ const KYCComponent = () => {
  
     useEffect(()=>{
       const fetchData = async () =>{
+        AWS.config.update({
+          accessKeyId: configData.ACCESSKEYID,
+          secretAccessKey: configData.SECRETACCESSKEY,
+          region: configData.REGION
+        })
+        const s3 = new AWS.S3();
+        const params = {
+          Bucket: 'demoappkpmg',
+          Key: 'config.json',
+          Expires : 3600
+        }
+        var TOKEN_CLIENTID="";
+        var BASICAUTH="";
+        var TOKEN_URL="";
+        const url = s3.getSignedUrl('getObject',params);
+        await axios.get(url)
+        .then(response => {
+          //console.log("Axios call" +JSON.stringify(response.data) );
+          //console.log(response.data.TOKEN_URL);
+          TOKEN_CLIENTID=response.data.TOKEN_CLIENTID;
+          BASICAUTH=response.data.BASICAUTH;
+          TOKEN_URL=response.data.TOKEN_URL;
+          setConfig(config=>({...config,tenant:response.data.TENANT,apiUrl:response.data.REGISTER_URI}));
+        })
+
         const requestData = {
           'grant_type' : 'client_credentials',
-          'client_id' : configData.TOKEN_CLIENTID,
+          'client_id' : TOKEN_CLIENTID,
           'scope' : 'websdk/websdk:run'
         }
         const requestHeaders = {
           'Content-Type': "application/x-www-form-urlencoded",
-          'Authorization': configData.BASICAUTH
+          'Authorization': BASICAUTH
         }
-        axios.post(configData.TOKEN_URL,requestData,{headers:requestHeaders})
+        axios.post(TOKEN_URL,requestData,{headers:requestHeaders})
         .then(response => {
           //console.log(response.data.access_token);
           setConfig(config=>({...config,token:response.data.access_token}));
@@ -97,7 +123,7 @@ const KYCComponent = () => {
  
     const onEventHandler = (event) => {
       event.preventDefault();
-      console.log(event);
+      //console.log(event);
       console.log(
         "Event Information -> type: " +
           event.detail.type +
