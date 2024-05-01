@@ -74,8 +74,8 @@ const KYCComponent = () => {
         const url = s3.getSignedUrl('getObject',params);
         await axios.get(url)
         .then(response => {
-          console.log("Axios call" +JSON.stringify(response.data) );
-          console.log(response.data.TOKEN_URL);
+          //console.log("Axios call" +JSON.stringify(response.data) );
+          //console.log(response.data.TOKEN_URL);
           TOKEN_CLIENTID=response.data.TOKEN_CLIENTID;
           BASICAUTH=response.data.BASICAUTH;
           TOKEN_URL=response.data.TOKEN_URL;
@@ -123,7 +123,7 @@ const KYCComponent = () => {
  
     const onEventHandler = (event) => {
       event.preventDefault();
-      console.log(event);
+      //console.log(event);
       console.log(
         "Event Information -> type: " +
           event.detail.type +
