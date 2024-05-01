@@ -40,8 +40,8 @@ class App extends Component {
     })
     const s3 = new AWS.S3();
     const params = {
-      Bucket: 'demoappkpmg',
-      Key: 'config.json',
+      Bucket: '',
+      Key: '',
       Expires : 3600
     }
 

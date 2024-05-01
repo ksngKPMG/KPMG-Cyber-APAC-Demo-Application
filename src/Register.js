@@ -65,8 +65,8 @@ const KYCComponent = () => {
         })
         const s3 = new AWS.S3();
         const params = {
-          Bucket: 'demoappkpmg',
-          Key: 'config.json',
+          Bucket: '',
+          Key: '',
           Expires : 3600
         }
         var TOKEN_CLIENTID="";
