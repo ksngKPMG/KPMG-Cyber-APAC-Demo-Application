@@ -36,7 +36,7 @@ class App extends Component {
     AWS.config.update({
       accessKeyId: '',
       secretAccessKey: '',
-      region: 'ap-southeast-2'
+      region: ''
     })
     const s3 = new AWS.S3();
     const params = {
