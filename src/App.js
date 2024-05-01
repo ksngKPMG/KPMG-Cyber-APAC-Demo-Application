@@ -34,8 +34,8 @@ class App extends Component {
 
   async fetch(){
     AWS.config.update({
-      accessKeyId: 'AKIAWUNLQXA736SZEFWN',
-      secretAccessKey: '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',
+      accessKeyId: '',
+      secretAccessKey: '',
       region: 'ap-southeast-2'
     })
     const s3 = new AWS.S3();
