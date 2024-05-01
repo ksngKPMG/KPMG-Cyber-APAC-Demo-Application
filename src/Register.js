@@ -59,8 +59,8 @@ const KYCComponent = () => {
       const fetchData = async () =>{
 
         AWS.config.update({
-          accessKeyId: 'AKIAWUNLQXA7UGEIDSZZ',
-          secretAccessKey: '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',
+          accessKeyId: '',
+          secretAccessKey: '',
           region: 'ap-southeast-2'
         })
         const s3 = new AWS.S3();
