@@ -7,6 +7,8 @@ import Profile from './Profile';
 import Register from './Register';
 import AWS from "aws-sdk"
 import axios from 'axios';
+import configData from './config/config.json'
+
 
 var APP_ISSUER="";
 var CLIENTID="";
@@ -34,14 +36,14 @@ class App extends Component {
 
   async fetch(){
     AWS.config.update({
-      accessKeyId: 'AKIAWUNLQXA736SZEFWN',
-      secretAccessKey: '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',
-      region: 'ap-southeast-2'
+      accessKeyId: configData.ACCESSKEYID,
+      secretAccessKey: configData.SECRETACCESSKEY,
+      region: configData.REGION
     })
     const s3 = new AWS.S3();
     const params = {
-      Bucket: 'demoappkpmg',
-      Key: 'config.json',
+      Bucket: configData.BUCKET,
+      Key: configData.KEY,
       Expires : 3600
     }
 

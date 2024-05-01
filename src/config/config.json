@@ -1,9 +1,7 @@
 {
-    "APP_ISSUER": "https://trial-2882636.oktapreview.com/oauth2/default",
-    "CLIENTID": "0oadxlcjporwDJXgP1d7",
-    "REGISTER_URI": "https://portal.api.au.truuth.id/kyc/",
-    "TENANT": "kpmgtest",
-    "BASICAUTH": "Basic MWl1YTNuM2lmbjNvMWR1MmNtMmFkNHUwcnQ6MTFqMTIxanZsaTZrY2NsZWVqN3IwNDd2ZXMyM2YxYXYzbTgwNDc0c25kNThyOXU0ZDF2",
-    "TOKEN_URL": "https://kpmgtest-prod.auth.ap-southeast-2.amazoncognito.com/oauth2/token",
-    "TOKEN_CLIENTID": "iua3n3ifn3o1du2cm2ad4u0rt"
+    "ACCESSKEYID":"AKIAWUNLQXA7UGEIDSZZ",
+    "SECRETACCESSKEY":"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",
+    "REGION":"ap-southeast-2",
+    "BUCKET": "demoappkpmg",
+    "KEY": "config.json"
 }

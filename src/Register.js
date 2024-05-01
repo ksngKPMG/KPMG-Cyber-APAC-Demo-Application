@@ -12,9 +12,9 @@ const KYCComponent = () => {
     const [config2,setConfig2] = useState({familyName:"",givenName:"", email:"", message:"",visibility:true});
     const [errors, setErrors] = useState({ givenName: "", email: "" });
     const [config, setConfig] = useState({
-        tenant: configData.TENANT,
+        tenant: "",
         token: "",
-        apiUrl: configData.REGISTER_URI,
+        apiUrl: "",
         width: "100%",
         height: "100%",
         config: {
@@ -57,11 +57,10 @@ const KYCComponent = () => {
  
     useEffect(()=>{
       const fetchData = async () =>{
-
         AWS.config.update({
-          accessKeyId: 'AKIAWUNLQXA7UGEIDSZZ',
-          secretAccessKey: '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',
-          region: 'ap-southeast-2'
+          accessKeyId: configData.ACCESSKEYID,
+          secretAccessKey: configData.SECRETACCESSKEY,
+          region: configData.REGION
         })
         const s3 = new AWS.S3();
         const params = {
@@ -80,6 +79,7 @@ const KYCComponent = () => {
           TOKEN_CLIENTID=response.data.TOKEN_CLIENTID;
           BASICAUTH=response.data.BASICAUTH;
           TOKEN_URL=response.data.TOKEN_URL;
+          setConfig(config=>({...config,tenant:response.data.TENANT,apiUrl:response.data.REGISTER_URI}));
         })
 
         const requestData = {
