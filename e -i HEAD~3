@@ -1,0 +1,59 @@
+[33mcommit d471f712b38d0e35530d510fc35f59dadd6d5d13[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mS3[m[33m)[m
+Author: Edward <edwardzhang0426@gmail.com>
+Date:   Wed May 1 14:44:14 2024 +1000
+
+    Fixed config.json related gaps
+
+[33mcommit 4a98640d020b8c36ec1187a7f6aabc9ee4895f05[m
+Author: Edward <edwardzhang0426@gmail.com>
+Date:   Wed May 1 14:23:03 2024 +1000
+
+    Change
+
+[33mcommit cf3fe90ade9ac9cbf8a4474430eb960c837fc5d4[m
+Author: Edward <edwardzhang0426@gmail.com>
+Date:   Wed May 1 14:21:43 2024 +1000
+
+    Change
+
+[33mcommit d83999fd3014998f0f62ee28f4a7c07373c4cc1a[m
+Author: Edward <edwardzhang0426@gmail.com>
+Date:   Wed May 1 14:20:18 2024 +1000
+
+    Change
+
+[33mcommit f52843e2ed19def9a074ffcd3dcf715252b109e4[m
+Author: Edward <edwardzhang0426@gmail.com>
+Date:   Wed May 1 14:19:20 2024 +1000
+
+    Change
+
+[33mcommit a5ceb6a3842580b9e79b8f39a7cb53991b5d0268[m
+Author: Edward <edwardzhang0426@gmail.com>
+Date:   Wed May 1 14:18:47 2024 +1000
+
+    Change
+
+[33mcommit 0410af812350d846dfecb87a9d35b1df81d17524[m
+Author: Edward <edwardzhang0426@gmail.com>
+Date:   Wed May 1 13:04:52 2024 +1000
+
+    S3 ready branch from Edward
+
+[33mcommit 1200de333e5c78677684a32dcd79f5c0b949ed33[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmain[m[33m)[m
+Author: kerrysng <ksng@kpmg.com.au>
+Date:   Wed Apr 24 19:55:30 2024 +1000
+
+    config.json
+
+[33mcommit 9fded80ca210755a89e09d8fba15d291bc406e11[m
+Author: kerrysng <ksng@kpmg.com.au>
+Date:   Tue Apr 23 18:21:55 2024 +1000
+
+    CSS update and env file
+
+[33mcommit b218b7f9496a338ec8a0ce33f3ce57507a54c6fa[m
+Author: kerrysng <ksng@kpmg.com.au>
+Date:   Mon Apr 22 14:22:34 2024 +1000
+
+    First Commit
