@@ -26,7 +26,7 @@ class App extends Component {
         }
       });
       const data = await response.json();
-      console.log("Mounted"+data);
+      //console.log("Mounted"+data);
       this.setState({ messages: data.messages });
     } catch (err) {
       // handle error as needed
@@ -91,7 +91,7 @@ class App extends Component {
           <Route path="/" exact={true} component={Home} />
           <Route path="/register" exact={true} component={Register}/>
           <Route path="/login/callback"  render= { (props) => {
-            console.log(JSON.stringify( props.history.location) );
+           // console.log(JSON.stringify( props.history.location) );
             const error = new URLSearchParams(props.history.location.search).get("error");
             console.log("Print: "+error);
             if(error!=null){
