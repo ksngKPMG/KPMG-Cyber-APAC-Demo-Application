@@ -1,0 +1,9 @@
+{
+    "APP_ISSUER": "https://dev-14399965.okta.com/oauth2/default",
+    "CLIENTID": "0oagqp7fauS7skLK65d7",
+    "REGISTER_URI": "https://portal.api.au.truuth.id/kyc/",
+    "TENANT": "kpmggrp8kyc",
+    "BASICAUTH": "Basic N2E4bzhkMmUyNGVtYjRtMTJma2ZiNTRpZHQ6ZjAycGJrdWNuNTJmMm5jZDFldHNkOTQwa2Q3bTFuMm82bG1nMGE5MGJsbGRzMGlkcnBt",
+    "TOKEN_URL": "https://kpmggrp8kyc-prod.auth.ap-southeast-2.amazoncognito.com/oauth2/token",
+    "TOKEN_CLIENTID": "7a8o8d2e24emb4m12fkfb54idt"
+}

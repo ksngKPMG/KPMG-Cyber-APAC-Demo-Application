@@ -1,7 +1,0 @@
-{
-    "ACCESSKEYID":"AKIAWUNLQXA7UGEIDSZZ",
-    "SECRETACCESSKEY":"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",
-    "REGION":"ap-southeast-2",
-    "BUCKET": "demoappkpmg",
-    "KEY": "config.json"
-}

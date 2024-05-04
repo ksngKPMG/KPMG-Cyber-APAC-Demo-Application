@@ -1,13 +1,11 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, withRouter, Redirect} from 'react-router-dom';
+import { BrowserRouter as Router, Route, withRouter} from 'react-router-dom';
 import { OktaAuth, toRelativeUrl } from '@okta/okta-auth-js';
 import { LoginCallback, Security, SecureRoute } from '@okta/okta-react';
 import Home from './Home';
 import Profile from './Profile';
 import Register from './Register';
-import AWS from "aws-sdk"
 import axios from 'axios';
-import configData from './config/config.json'
 
 
 var APP_ISSUER="";
@@ -20,7 +18,7 @@ class App extends Component {
   }
   async componentDidMount() {
     try {
-      const response = await fetch('http://localhost:3000/profile', {
+      const response = await fetch(window.location.origin + '/profile', {
         headers: {
           Authorization: 'Bearer ' + this.props.authState.accessToken
         }
@@ -35,19 +33,7 @@ class App extends Component {
   }
 
   async fetch(){
-    AWS.config.update({
-      accessKeyId: configData.ACCESSKEYID,
-      secretAccessKey: configData.SECRETACCESSKEY,
-      region: configData.REGION
-    })
-    const s3 = new AWS.S3();
-    const params = {
-      Bucket: configData.BUCKET,
-      Key: configData.KEY,
-      Expires : 3600
-    }
-
-    const url = s3.getSignedUrl('getObject',params);
+    const url = '/config/config.json'
     await axios.get(url)
     .then(response => {
       APP_ISSUER=response.data.APP_ISSUER;

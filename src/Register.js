@@ -5,8 +5,7 @@ import './App.css';
 import {Helmet,HelmetProvider} from 'react-helmet-async';
 import axios from 'axios';
 import kpmgLogo from "./assets/KPMG_logo.png";
-import configData from "./config/config.json"
-import AWS from "aws-sdk"
+
 
 const KYCComponent = () => {
     const [config2,setConfig2] = useState({familyName:"",givenName:"", email:"", message:"",visibility:true});
@@ -57,21 +56,10 @@ const KYCComponent = () => {
  
     useEffect(()=>{
       const fetchData = async () =>{
-        AWS.config.update({
-          accessKeyId: configData.ACCESSKEYID,
-          secretAccessKey: configData.SECRETACCESSKEY,
-          region: configData.REGION
-        })
-        const s3 = new AWS.S3();
-        const params = {
-          Bucket: 'demoappkpmg',
-          Key: 'config.json',
-          Expires : 3600
-        }
         var TOKEN_CLIENTID="";
         var BASICAUTH="";
         var TOKEN_URL="";
-        const url = s3.getSignedUrl('getObject',params);
+        const url = '/config/config.json'
         await axios.get(url)
         .then(response => {
           //console.log("Axios call" +JSON.stringify(response.data) );
