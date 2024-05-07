@@ -1,10 +1,7 @@
 {
-    "APP_ISSUER": "https://trial-2882636.oktapreview.com/oauth2/default",
-    "CLIENTID": "0oadxlcjporwDJXgP1d7",
-    "REGISTER_URI": "https://portal.api.au.truuth.id/kyc/",
-    "TENANT": "kpmgtest",
-    "TOKEN": "eyJraWQiOiIzTTZ6SWRRVjBRSTRaa3k2RGRuUWJRejhzcGd2QzZBenY3T3pXYSs1cDhrPSIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiI2MzcwZTlmNS05NjFlLTQwYjUtYWUzYy1jNDcxMzFhNGFlYzEiLCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAuYXAtc291dGhlYXN0LTIuYW1hem9uYXdzLmNvbVwvYXAtc291dGhlYXN0LTJfenY2QlZLZ0JpIiwiY2xpZW50X2lkIjoiMzBucWt2MmVxN2duMmZqdDE0ZTE2amgzc2wiLCJvcmlnaW5fanRpIjoiMjZhN2E3NDYtMWYzOS00MDgwLWE3OTItNDI5M2MxOTk4NWVjIiwiZXZlbnRfaWQiOiI0Mjk2NGVkMy1mMmU2LTRhNGMtYjZlNS1mMWY3OTYxY2EwNDUiLCJ0b2tlbl91c2UiOiJhY2Nlc3MiLCJzY29wZSI6ImF3cy5jb2duaXRvLnNpZ25pbi51c2VyLmFkbWluIiwiYXV0aF90aW1lIjoxNzA4MDU4OTIwLCJleHAiOjE3MDgwNjI1MTksImlhdCI6MTcwODA1ODkyMCwianRpIjoiMjRiMGQwYjEtMWFjNS00YTJmLTlmZjgtMzk4ODM3YzUxOGUxIiwidXNlcm5hbWUiOiI2MzcwZTlmNS05NjFlLTQwYjUtYWUzYy1jNDcxMzFhNGFlYzEifQ.Adhhk80NkZmUQoTD85UK9uqysxL6wKyTTGGo2jnv-pXPOH8Ki-fjWO_Gais-QoqRHX5uckn8rw5meQg55F87koJ3XBeEV6YrAqMeuvsm7DyIFeHaQuSThhq_f93uNB0xHK1sdc_5D2OBp04Eii3dSB_EEIF7C66MRuLAG4tfro32lSamL1gO9IdJpyLiglgKermQXD1DveP0eQA-dw8NYWtQ3YBP7ZkW4biNGd-3rM2ysfnH3PMSNwdCunZ2FooWST5suvRTBS5Ju93A-CQx_qZDIO2CMwa-pU5I037tbQx0t4swFUQCiNXla5RUUMzyr4aJ-thtFI5Z4KEiYb3BqA",
-    "BASICAUTH": "Basic MWl1YTNuM2lmbjNvMWR1MmNtMmFkNHUwcnQ6MTFqMTIxanZsaTZrY2NsZWVqN3IwNDd2ZXMyM2YxYXYzbTgwNDc0c25kNThyOXU0ZDF2",
-    "TOKEN_URL": "https://kpmgtest-prod.auth.ap-southeast-2.amazoncognito.com/oauth2/token",
-    "TOKEN_CLIENTID": "iua3n3ifn3o1du2cm2ad4u0rt"
+    "ACCESSKEYID":"AKIAWUNLQXA7UGEIDSZZ",
+    "SECRETACCESSKEY":"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",
+    "REGION":"ap-southeast-2",
+    "BUCKET": "demoappkpmg",
+    "KEY": "config.json"
 }

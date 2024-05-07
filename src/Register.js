@@ -17,7 +17,7 @@ const KYCComponent = () => {
         width: "100%",
         height: "100%",
         config: {
-          email: "",
+          email: "1212@gmail.com",
           externalRefId: "viva max",
           givenName: "givenname",
           familyName: "familyname",
